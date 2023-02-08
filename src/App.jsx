@@ -1,19 +1,36 @@
 import "./App.css";
 
-import { Header } from "./components/header";
-import { Navbar } from "./components/NavBar/navbar";
+import { NavBar } from "./components/NavBar";
+import { Header } from "./components/Header";
+import { HighLights } from "./components/HighLights";
 
-import * as S from "./ui/Grid/"
+import * as S from "./ui/Grid/";
+import { useEffect } from "react";
+import { apiFetcher } from "./services";
+
+
 
 function App() {
+
+  useEffect(() => {
+    const makeRequest = async () =>{
+      const response = await apiFetcher("photos")
+      console.log(response)
+    }
+
+    makeRequest()
+    
+  }, []);
+
   return (
     <S.Grid templateColumns={"20% 80%"}>
       <S.GridItem>
-        <Navbar />
+        <NavBar />
       </S.GridItem>
-      <S.GridItem>
+      <S.ContentGrid>
         <Header />
-      </S.GridItem>
+        <HighLights />
+      </S.ContentGrid>
     </S.Grid>
   );
 }

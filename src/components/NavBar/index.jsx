@@ -1,1 +1,1 @@
-export {NavBar} from './navbar.jsx'
+export { NavBar } from "./navbar.jsx";

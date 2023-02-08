@@ -12,3 +12,9 @@ export const Grid = styled.div`
 export const GridItem = styled.div`
   position: relative;
 `;
+
+export const ContentGrid = styled.div`
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto 30px;
+`;

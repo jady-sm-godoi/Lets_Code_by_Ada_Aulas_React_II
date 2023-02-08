@@ -13,7 +13,7 @@ const links = [
   "Perfil",
 ];
 
-export const Navbar = (props) => {
+export const NavBar = (props) => {
   return (
     <S.NavbarWrapper>
       <S.Box>
