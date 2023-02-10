@@ -1,8 +1,8 @@
+import { Wrapper } from "./style";
+
 export const Title = () => {
   return (
-    <div>
-      {" "}
-      <div>
+      <Wrapper>
         <svg
           aria-label="Instagram"
           color="#fff"
@@ -17,7 +17,6 @@ export const Title = () => {
             fillRule="evenodd"
           ></path>
         </svg>
-      </div>
-    </div>
+      </Wrapper>
   );
 };

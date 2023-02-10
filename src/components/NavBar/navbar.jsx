@@ -1,5 +1,5 @@
-import { NavItem } from "../nav-item";
-import { Title } from "../title";
+import { NavItem } from "../NavItem";
+import { Title } from "../Title/title";
 import * as S from "./style";
 
 const links = [

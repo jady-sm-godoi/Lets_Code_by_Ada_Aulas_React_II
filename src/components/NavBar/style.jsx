@@ -16,5 +16,5 @@ export const NavbarWrapper = styled.div`
 `;
 
 export const Box = styled.div`
-  border: 1px solid red;
+  
 `

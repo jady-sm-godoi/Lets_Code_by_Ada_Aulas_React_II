@@ -28,16 +28,6 @@ const dataHighLights = [
     title: "Modelo Educacional",
     image: "https://via.placeholder.com/90",
   },
-  {
-    id: 5,
-    title: undefined,
-    image: "https://via.placeholder.com/90",
-  },
-  {
-    id: 6,
-    title: "",
-    image: "https://via.placeholder.com/90",
-  },
 ];
 
 //handle functions
