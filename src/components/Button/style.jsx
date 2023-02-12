@@ -5,7 +5,8 @@ export const WrapperButton = styled.button`
     border-radius: 5px;
     cursor: pointer;
     padding: 7px 15px;
-    background-color: white;
+    background-color: ${(props) => props.color ? props.color : 'white'};
+    width: ${(props) => props.larg ? props.larg : ''};
 
     div{
         color: black;

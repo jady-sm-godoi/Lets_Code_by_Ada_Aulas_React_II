@@ -3,7 +3,7 @@ import { Wrapper } from "./style";
 
 export const NavItem = (props) => {
   return (
-    <Wrapper>
+    <Wrapper onClick={props.onClick}>
       <Text>{props.text}</Text>
     </Wrapper>
   );

@@ -1,59 +1,28 @@
+import { useState } from "react";
 import "./App.css";
-import * as S from "./ui/Grid/";
-
-import { NavBar } from "./components/NavBar";
-import { Header } from "./components/Header";
-import { HighLights } from "./components/HighLights";
-import { Feed } from "./components/Feed";
-import { Reels } from "./components/Reels";
-import { Marcados } from "./components/Marcados";
-
-import { useEffect, useState } from "react";
-import { apiFetcher } from "./services";
-import { FeedControl } from "./components/FeedControl";
+import { Home } from "./pages/Home/home";
+import { Login } from "./pages/Login/login";
+import { SignUp } from "./pages/SignUp/signup";
 
 function App() {
-  const [photos, setPhotos] = useState([]);
-  const [active, setActive] = useState('feed')
+  const [actualPage, setActualPage] = useState("login");
 
-  const handleClick = (label) => {
-    setActive(label)
-  }
-
-  const handleFeedContentChange = () => {
-    if(active === 'feed'){
-      return <Feed photos={photos}/>
-    } else if (active === 'reels'){
-      return <Reels photos={photos}/>
-    } else if(active === 'marcados'){
-      return <Marcados photos={photos} />
-    } else {
-      return <h2>Sem conteúdo</h2>
+  const newPage = () => {
+    if (actualPage === "login") {
+      return (
+        <Login
+          goToSignUp={() => setActualPage("signup")}
+          changePage={() => setActualPage("home")}
+        />
+      );
+    } else if (actualPage === "signup") {
+      return <SignUp changePage={() => setActualPage("login")}/>;
+    } else if (actualPage === "home") {
+      return <Home changePage={() => setActualPage("login")} />;
     }
-  }
+  };
 
-  useEffect(() => {
-    const makeRequest = async () => {
-      const response = await apiFetcher("photos");
-      setPhotos(response);
-    };
-
-    makeRequest();
-  }, []);
-
-  return (
-    <S.Grid templateColumns={"20% 80%"}>
-      <S.GridItem>
-        <NavBar />
-      </S.GridItem>
-      <S.ContentGrid>
-        <Header />
-        <HighLights />
-        <FeedControl active={active} handleChange={handleClick}/>
-        {handleFeedContentChange()}
-      </S.ContentGrid>
-    </S.Grid>
-  );
+  return <>{newPage()}</>;
 }
 
 export default App;

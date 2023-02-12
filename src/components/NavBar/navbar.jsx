@@ -26,7 +26,7 @@ export const NavBar = (props) => {
           ))}
         </S.Box>
       </S.Box>
-      <NavItem text="Mais" />
+      <NavItem onClick={props.onClick} text="Sair" />
     </S.NavbarWrapper>
   );
 };
