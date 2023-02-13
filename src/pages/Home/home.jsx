@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+
 import { Feed } from "../../components/Feed";
 import { FeedControl } from "../../components/FeedControl";
 import { Header } from "../../components/Header";
@@ -11,9 +12,10 @@ import { apiFetcher } from "../../services";
 import * as S from "../../ui/Grid";
 
 export const Home = (props) => {
-
   const [photos, setPhotos] = useState([]);
   const [active, setActive] = useState('feed')
+
+ 
 
   const handleClick = (label) => {
     setActive(label)

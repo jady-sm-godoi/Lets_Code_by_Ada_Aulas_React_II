@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import { NavItem } from "../NavItem";
 import { Title } from "../Title/title";
 import * as S from "./style";
@@ -14,6 +16,12 @@ const links = [
 ];
 
 export const NavBar = (props) => {
+  const navigate = useNavigate();
+
+  const handleGoToLogin = () => {
+    navigate("/login");
+  };
+
   return (
     <S.NavbarWrapper>
       <S.Box>
@@ -26,7 +34,9 @@ export const NavBar = (props) => {
           ))}
         </S.Box>
       </S.Box>
-      <NavItem onClick={props.onClick} text="Sair" />
+      <NavItem onClick={handleGoToLogin} text="Sair" />
     </S.NavbarWrapper>
   );
 };
+
+// onClick={props.onClick}
