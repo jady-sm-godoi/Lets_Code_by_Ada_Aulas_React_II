@@ -1,7 +1,7 @@
 import * as S from "./style";
 
 import { Avatar } from "../Avatar";
-import { Button } from "../Button/button";
+import { Button } from "../../ui/Button";
 import { Text, TextLink } from "../../ui/Text";
 
 export const Header = (props) => {

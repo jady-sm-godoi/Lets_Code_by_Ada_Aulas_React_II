@@ -1,15 +1,21 @@
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 import * as S from "./style";
-import { Button } from "../../components/Button/button";
-import { Title } from "../../components/Title/title";
+
+import { Button } from "../../ui/Button";
+import { Title } from "../../components/Title";
 import { Inputs } from "../../ui/Inputs";
-import { useEffect, useState } from "react";
+import { TextLink } from "../../ui/Text";
 
 export const SignUp = (props) => {
+  const goBackIcon = '<<'
+  const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [age, setAge] = useState(0);
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState({});
 
   const handleChangeName = (e) => {
     setName(e.currentTarget.value);
@@ -24,18 +30,21 @@ export const SignUp = (props) => {
     setPassword(e.currentTarget.value);
   };
 
-  useEffect(() => {
-    const handleChangeUser = () => {
-      setUser({
-        nome: name,
-        email: email,
-        idade: age,
-        senha: password,
-      });
+  const handleChangeUser = () => {
+    const user = {
+      nome: name,
+      email: email,
+      idade: age,
+      senha: password,
     };
-    handleChangeUser();
-  }, [name, email, age, password]);
-  
+    console.log(user);
+    navigate("/login");
+  };
+
+  const handleGoBack = () => {
+    navigate('/login')
+  }
+
   return (
     <S.Wrapper>
       <Title />
@@ -50,13 +59,10 @@ export const SignUp = (props) => {
         />
         <Inputs type="password" placeholder="Repita sua senha" />
       </S.InputBox>
-      <Button
-        onClick={console.log("usuário: ", user)}
-        color="#0D73B6"
-        larg="100%"
-      >
+      <Button onClick={handleChangeUser} color="#0D73B6" larg="100%">
         Salvar
       </Button>
+      <TextLink color='gray' onClick={handleGoBack}>{goBackIcon}</TextLink>
     </S.Wrapper>
   );
 };

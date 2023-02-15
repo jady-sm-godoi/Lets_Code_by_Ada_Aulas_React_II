@@ -8,4 +8,6 @@ export const Inputs = styled.input`
     padding: 5px;
     color: gray;
     width: 100%;
+
+    margin-bottom: ${(props) => props.mbotton ? props.mbotton : ''};
 `

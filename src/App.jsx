@@ -18,6 +18,7 @@ function App() {
       </Routes>
     </Router>
     
+    //NAVEGAÇÃO ENTRE PAG. COM USESTATE:
     // <>
     //   {actualPage === "login" && (
     //     <Login
