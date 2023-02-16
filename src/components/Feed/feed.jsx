@@ -6,15 +6,12 @@ import * as S from "./style";
 
 export const Feed = (props) => {
   const [search, setSearch] = useState("");
-  const [feedContent, setFeedContent] = useState(
-    props.photos.map((item) => (
-      <FeedItem
-        key={item.id}
-        author={item.user.instagram_username}
-        imageData={item.urls.small}
-      />
-    ))
-  );
+  const [feedArray, setFeedArray] = useState([]);
+  
+  useEffect(() => {
+    setFeedArray(props.photos);
+    return () => setFeedArray([]);
+  },[props.photos]);
 
   const handleInputSearch = (e) => {
     setSearch(e.currentTarget.value);
@@ -28,28 +25,8 @@ export const Feed = (props) => {
     })
   );
 
-  const feedItemSearched = useCallback(() => {
-    return (
-      <FeedItem
-        key={choosedImage[0].id}
-        author={choosedImage[0].user.instagram_username}
-        imageData={choosedImage[0].urls.small}
-      />
-    );
-  });
-
-  const showSearchedItem = () => {
-    setFeedContent(
-      choosedImage[0]
-        ? feedItemSearched()
-        : props.photos.map((item) => (
-            <FeedItem
-              key={item.id}
-              author={item.user.instagram_username}
-              imageData={item.urls.small}
-            />
-          ))
-    );
+  const changeFeedArray = () => {
+    setFeedArray(choosedImage);
   };
 
   return (
@@ -59,9 +36,15 @@ export const Feed = (props) => {
           placeholder="Busque sua imagem..."
           onChange={handleInputSearch}
         />
-        <Button onClick={showSearchedItem}>Go</Button>
+        <Button onClick={changeFeedArray}>Go</Button>
       </S.InputWrapper>
-      {feedContent}
+      {feedArray.map((item) => (
+        <FeedItem
+          key={item.id}
+          author={item.user.instagram_username}
+          imageData={item.urls.small}
+        />
+      ))}
     </S.Wrapper>
   );
 };
