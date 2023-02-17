@@ -22,11 +22,11 @@ export const Feed = (props) => {
       if (item.user.instagram_username === search) {
         return item;
       }
-    })
+    }),[search]
   );
 
   const changeFeedArray = () => {
-    setFeedArray(choosedImage);
+    choosedImage.length > 0 && setFeedArray(choosedImage)
   };
 
   return (

@@ -10,24 +10,28 @@ import { TextLink } from "../../ui/Text";
 import { useRef } from "react";
 
 export const Login = (props) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const emailRef = useRef(null);
   const passwordlRef = useRef(null);
-  
+
   const handleToLogin = () => {
-    const inputUserEmail = users.find((user) => user.email === emailRef.current.value);
-    const inputUserPassword = users.find((user) => user.password === passwordlRef.current.value);
-    
+    const inputUserEmail = users.find(
+      (user) => user.email === emailRef.current.value
+    );
+    const inputUserPassword = users.find(
+      (user) => user.password === passwordlRef.current.value
+    );
+
     if (inputUserEmail && inputUserPassword) {
-      navigate("/");
+      // navigate("/");
     } else {
       alert("usuário não encontrado!");
-      navigate("/sign-up");
+      // navigate("/sign-up");
     }
   };
 
   const handleGoToSignUp = () => {
-    navigate("/sign-up");
+    // navigate("/sign-up");
   };
 
   return (
@@ -38,15 +42,23 @@ export const Login = (props) => {
         <Inputs ref={passwordlRef} type="password" placeholder="Senha" />
       </S.InputBox>
       <CheckBox label="Salvar informações de login" />
-      <Button onClick={handleToLogin} color="#0D73B6" larg="100%">
+      <Button
+        onClick={() => props.changePage("home")}
+        color="#0D73B6"
+        larg="100%"
+      >
         Entrar
       </Button>
-      <TextLink onClick={handleGoToSignUp} size="small">
+      <TextLink onClick={() => props.changePage("signup")} size="small">
         Não está cadastrado?
       </TextLink>
     </S.Wrapper>
   );
 };
 
+//PARA NAVEGAÇAO COM REACT-ROUTER-DOM
+// onClick={handleToLogin}
+
+//PARA NAVEGACÁO COM USEESTATE E USEREDUCER
 // onClick={props.changePage}
 // onClick={props.goToSignUp}

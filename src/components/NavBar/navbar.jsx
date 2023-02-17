@@ -16,10 +16,10 @@ const links = [
 ];
 
 export const NavBar = (props) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleGoToLogin = () => {
-    navigate("/login");
+    // navigate("/login");
   };
 
   return (
@@ -34,7 +34,7 @@ export const NavBar = (props) => {
           ))}
         </S.Box>
       </S.Box>
-      <NavItem onClick={handleGoToLogin} text="Sair" />
+      <NavItem onClick={()=> props.onClick('login')} text="Sair" />
     </S.NavbarWrapper>
   );
 };

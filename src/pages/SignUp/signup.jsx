@@ -9,8 +9,8 @@ import { Inputs } from "../../ui/Inputs";
 import { TextLink } from "../../ui/Text";
 
 export const SignUp = (props) => {
-  const goBackIcon = '<<'
-  const navigate = useNavigate();
+  const goBackIcon = "<<";
+  // const navigate = useNavigate();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -38,12 +38,12 @@ export const SignUp = (props) => {
       senha: password,
     };
     console.log(user);
-    navigate("/login");
+    // navigate("/login");
   };
 
   const handleGoBack = () => {
-    navigate('/login')
-  }
+    // navigate('/login')
+  };
 
   return (
     <S.Wrapper>
@@ -62,7 +62,9 @@ export const SignUp = (props) => {
       <Button onClick={handleChangeUser} color="#0D73B6" larg="100%">
         Salvar
       </Button>
-      <TextLink color='gray' onClick={handleGoBack}>{goBackIcon}</TextLink>
+      <TextLink color="gray" onClick={() => props.changePage("login")}>
+        {goBackIcon}
+      </TextLink>
     </S.Wrapper>
   );
 };
