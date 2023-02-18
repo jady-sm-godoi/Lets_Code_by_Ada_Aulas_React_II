@@ -6,7 +6,7 @@ export const FeedItem = (props) => {
 
     return (
         <S.Wrapper>
-            <S.ImageFeed src={props.imageData}/>
+            <S.ImageFeed {...props} src={props.imageData}/>
             <Text>{props.author ? `@${props.author}` : ''}</Text>
         </S.Wrapper>
     )

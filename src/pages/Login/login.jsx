@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useContext, useRef } from "react";
 
 import * as S from "./style";
 import { users } from "../../services/data";
@@ -7,30 +8,37 @@ import { Title } from "../../components/Title/title";
 import { Inputs } from "../../ui/Inputs";
 import { CheckBox } from "../../ui/CheckBox/checkbox";
 import { TextLink } from "../../ui/Text";
-import { useRef } from "react";
+import { InstaContext } from "../../App";
 
-export const Login = (props) => {
+export const Login = () => {
+  const state = useContext(InstaContext) 
+
   // const navigate = useNavigate();
-  const emailRef = useRef(null);
+
+  const userRef = useRef(null);
   const passwordlRef = useRef(null);
 
-  const handleToLogin = () => {
+  const handleToHome = () => {
     const inputUserEmail = users.find(
-      (user) => user.email === emailRef.current.value
+      (user) => user.usuario === userRef.current.value
     );
     const inputUserPassword = users.find(
       (user) => user.password === passwordlRef.current.value
     );
 
     if (inputUserEmail && inputUserPassword) {
+      state.dispatch({type: "change_page", payload: 'home'})
+      state.dispatch({type: "add_user", payload: userRef.current.value})
       // navigate("/");
     } else {
       alert("usuário não encontrado!");
+      state.dispatch({type: "change_page", payload: 'signup'})
       // navigate("/sign-up");
     }
   };
 
   const handleGoToSignUp = () => {
+    state.dispatch({type: "change_page", payload: 'signup'})
     // navigate("/sign-up");
   };
 
@@ -38,18 +46,18 @@ export const Login = (props) => {
     <S.Wrapper>
       <Title />
       <S.InputBox>
-        <Inputs ref={emailRef} placeholder="email" />
+        <Inputs ref={userRef} placeholder="usuário" />
         <Inputs ref={passwordlRef} type="password" placeholder="Senha" />
       </S.InputBox>
       <CheckBox label="Salvar informações de login" />
       <Button
-        onClick={() => props.changePage("home")}
+        onClick={handleToHome}
         color="#0D73B6"
         larg="100%"
       >
         Entrar
       </Button>
-      <TextLink onClick={() => props.changePage("signup")} size="small">
+      <TextLink onClick={handleGoToSignUp} size="small">
         Não está cadastrado?
       </TextLink>
     </S.Wrapper>

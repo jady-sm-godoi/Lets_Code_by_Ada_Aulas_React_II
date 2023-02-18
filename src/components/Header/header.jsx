@@ -3,8 +3,12 @@ import * as S from "./style";
 import { Avatar } from "../Avatar";
 import { Button } from "../../ui/Button";
 import { Text, TextLink } from "../../ui/Text";
+import { useContext } from "react";
+import { InstaContext } from "../../App";
 
-export const Header = (props) => {
+export const Header = () => {
+  const handleState = useContext(InstaContext)
+  
   return (
     <S.HeaderWrapper>
       <S.AvatarWrapper>
@@ -12,7 +16,7 @@ export const Header = (props) => {
       </S.AvatarWrapper>
       <S.ContentWrapper>
         <S.BoxFlex gap={"15px"}>
-          <Text bold>adatechbr</Text>
+          <Text bold>@{handleState.state.user.userName}</Text>
           <Button>Seguindo</Button>
           <Button>Enviar mensagem</Button>
           <Button>+amigo</Button>

@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useState } from "react";
+import { InstaContext } from "../../App";
 
 import { Feed } from "../../components/Feed";
 import { FeedControl } from "../../components/FeedControl";
@@ -11,9 +12,12 @@ import { Reels } from "../../components/Reels";
 import { apiFetcher } from "../../services";
 import * as S from "../../ui/Grid";
 
-export const Home = (props) => {
-  const [photos, setPhotos] = useState([]);
+export const Home = () => {
+  // const [photos, setPhotos] = useState([]);
+  //USANDO USECONTEXT PARA PEGAR AS FOTOS NA LISTA DE FOTOS DO USUÁRIO (SÓ PARA TREINAR O CREATECONTEXT)
+  const state = useContext(InstaContext)
   const [active, setActive] = useState("feed");
+  
 
   const handleClick = (label) => {
     setActive(label);
@@ -21,11 +25,11 @@ export const Home = (props) => {
 
   const handleFeedContentChange = () => {
     if (active === "feed") {
-      return <Feed photos={photos} />;
+      return <Feed photos={state.state.user.photos} />;
     } else if (active === "reels") {
-      return <Reels photos={photos} />;
+      return <Reels photos={state.state.user.photos} />;
     } else if (active === "marcados") {
-      return <Marcados photos={photos} />;
+      return <Marcados photos={state.state.user.photos} />;
     } else {
       return <h2>Sem conteúdo</h2>;
     }
@@ -34,7 +38,9 @@ export const Home = (props) => {
   useEffect(() => {
     const makeRequest = async () => {
       const response = await apiFetcher("photos");
-      setPhotos(response);
+      //ENVIANDO A LISTA DE FOTOS PARA O USUÁRIO LÁ NO APP.JSX PARA SER DISTRIBUIDO VIA CONTEXTO (SÓ PARA TREINAR)
+      state.dispatch({type: "add_photos_user", payload: response})
+      // setPhotos(response);
     };
 
     makeRequest();
@@ -43,7 +49,7 @@ export const Home = (props) => {
   return (
     <S.Grid templateColumns={"20% 80%"}>
       <S.GridItem>
-        <NavBar onClick={props.changePage} />
+        <NavBar />
       </S.GridItem>
       <S.ContentGrid>
         <Header />

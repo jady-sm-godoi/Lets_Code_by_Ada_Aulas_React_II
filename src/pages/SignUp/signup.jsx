@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import * as S from "./style";
 
@@ -7,10 +7,12 @@ import { Button } from "../../ui/Button";
 import { Title } from "../../components/Title";
 import { Inputs } from "../../ui/Inputs";
 import { TextLink } from "../../ui/Text";
+import { InstaContext } from "../../App";
 
-export const SignUp = (props) => {
+export const SignUp = () => {
   const goBackIcon = "<<";
   // const navigate = useNavigate();
+  const state = useContext(InstaContext);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -39,10 +41,12 @@ export const SignUp = (props) => {
     };
     console.log(user);
     // navigate("/login");
+    state.dispatch({ type: "change_page", payload: "login" });
   };
 
   const handleGoBack = () => {
     // navigate('/login')
+    state.dispatch({ type: "change_page", payload: "login" });
   };
 
   return (
@@ -62,7 +66,7 @@ export const SignUp = (props) => {
       <Button onClick={handleChangeUser} color="#0D73B6" larg="100%">
         Salvar
       </Button>
-      <TextLink color="gray" onClick={() => props.changePage("login")}>
+      <TextLink color="gray" onClick={handleGoBack}>
         {goBackIcon}
       </TextLink>
     </S.Wrapper>

@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { InstaContext } from "../../App";
 
 import { NavItem } from "../NavItem";
 import { Title } from "../Title/title";
@@ -15,10 +17,13 @@ const links = [
   "Perfil",
 ];
 
-export const NavBar = (props) => {
+export const NavBar = () => {
+  const state = useContext(InstaContext);
+
   // const navigate = useNavigate();
 
   const handleGoToLogin = () => {
+    state.dispatch({ type: "change_page", payload: "login" });
     // navigate("/login");
   };
 
@@ -34,7 +39,7 @@ export const NavBar = (props) => {
           ))}
         </S.Box>
       </S.Box>
-      <NavItem onClick={()=> props.onClick('login')} text="Sair" />
+      <NavItem onClick={handleGoToLogin} text="Sair" />
     </S.NavbarWrapper>
   );
 };
