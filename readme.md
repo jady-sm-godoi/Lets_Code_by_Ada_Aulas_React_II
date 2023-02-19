@@ -18,17 +18,22 @@ Um projeto para o curso React II - em Let's Code by Ada - projeto OiDevs
 <br>
 
 <p align="center">
-  <img alt="calendario da copa" src="https://user-images.githubusercontent.com/59850893/201752252-97e4631d-d6a6-4294-8c54-f130d8fa9fd5.png" width="50%">
+  <img alt="tela de login" src="https://user-images.githubusercontent.com/59850893/219975691-7ced42c9-fd51-4c0f-95c2-760fa0701134.png" width="50%">
 </p>
 
 
 <p align="center">
-  <img alt="calendario da copa" src="https://user-images.githubusercontent.com/59850893/201756263-462ef3fa-2499-46ba-8d92-75b40fe6a866.png" width="50%">
+  <img alt="tela de sign-up" src="https://user-images.githubusercontent.com/59850893/219975716-fe6de164-3369-46b8-afd3-98ef4ecc9285.png" width="50%">
 </p>
 
 
 <p align="center">
-  <img alt="calendario da copa" src="https://user-images.githubusercontent.com/59850893/201756293-a8f8bd31-5860-41c5-8f98-1af6010197f6.png" width="50%">
+  <img alt="tela perfil - feed" src="https://user-images.githubusercontent.com/59850893/219975752-55980b80-7883-42fd-bb90-2f9066cf4d69.png" width="50%">
+</p>
+
+
+<p align="center">
+  <img alt="tela perfil - reels" src="https://user-images.githubusercontent.com/59850893/219975796-3c6f2493-5127-4ed3-a4be-15b0b5be4c27.png" width="50%">
 </p>
 
 ## 🚀 Tecnologias
@@ -56,6 +61,7 @@ Neste repositório no GitHub, cada branch corresponde a uma aula, com os temas a
 
 A building do projeto foi feita na Vercel.
 Você pode ver a página do projeto através [DESSE LINK](https://instagram-for-letscode-by-ada.vercel.app/).
+
 Para acessar utilize o usuário: adatech e senha: 123
 
 ## :memo: Licença
