@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
     border-radius: 10px;
     padding: 50px 40px 20px;
     width: 400px;
-    height:400px;
+    height:430px;
 ` 
 
 export const InputBox = styled.div`

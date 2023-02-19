@@ -55,3 +55,37 @@ console.log(novaLista);
 
 
 
+//PARA FAZER A BUILD DO PROJETO:
+// No terminal:
+// > npm run build
+
+// O Vite vai criar a pasta "dist" onde estão os arquivos prontos para subir para o servidor que fará o build da aplicação na web 
+
+// Para mais info: https://vitejs.dev/guide/static-deploy.html
+
+//URL DO PROJETO NA VERCEL: https://instagram-for-letscode-by-ada.vercel.app/
+
+
+//TESTES
+
+//Para configurar tests em projeto com Vite:
+// https://dev.to/theandersonn/configurando-o-jest-e-testing-library-no-vite-10p1
+
+
+// Teste E2E: Testes end to end
+// esses testes buscam verificar o comportamento do sistema como um todo, “de uma ponta à outra”. 
+// Geralmente simulam a atividade que o usuário final teria, mas feita em um ambiente preparado para ser muito semelhante ao do ambiente de produção.
+
+// Teste unidade: Buscam testar um trecho de código, são os testes “mais baratos” pois levam menos tempo para serem feitos e executados.
+
+// Teste de Integração: Testam a integração entre componentes e/ou entre serviços (se o componente está buscando os dados do backend por exemplo), 
+// esse tipo de teste é mais caro de se construir pois levam mais tempo para serem sua criação e execução, esses testes ficam no meio da pirâmide de testes.
+
+//PARA RODAR OS TESTES:
+// > npm run test
+
+//PARA RODAR OS TESTES COM RELATÓRIOS COMPLETOS:
+// > npm run test -- --coverage
+
+//PARA ABRIR UM RELATÓRIO BEM CHIC:
+//> open coverage
