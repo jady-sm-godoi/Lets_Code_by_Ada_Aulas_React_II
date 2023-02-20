@@ -89,3 +89,6 @@ console.log(novaLista);
 
 //PARA ABRIR UM RELATÓRIO BEM CHIC:
 //> open coverage
+
+//PARA FAZER A MODAL NO FEED:
+// https://www.npmjs.com/package/react-modal

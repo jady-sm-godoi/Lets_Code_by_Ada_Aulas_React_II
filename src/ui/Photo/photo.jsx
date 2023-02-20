@@ -8,7 +8,7 @@ export const Photo = () => {
       onClick={() => {
         dispatch({ type: "change_page", payload: "home" });
       }}
-      src={state.user.highLightImage.urls.regular}
+      src={state.user.highLightImage.urls.small}
     />
   );
 };

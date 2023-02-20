@@ -4,7 +4,7 @@ import { createContext, useReducer, useState } from "react";
 import "./App.css";
 import { Home } from "./pages/Home/";
 import { Login } from "./pages/Login/";
-import { Photo } from "./pages/Photo/";
+import { Photo } from "./ui/Photo";
 import { SignUp } from "./pages/SignUp/";
 
 const initialState = {

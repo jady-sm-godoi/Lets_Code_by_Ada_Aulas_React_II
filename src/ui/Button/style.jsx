@@ -9,7 +9,7 @@ export const WrapperButton = styled.button`
     width: ${(props) => props.larg ? props.larg : ''};
 
     div{
-        color: black;
+        color: ${(props) => props.fontColor ? props.fontColor : 'black'};
         font-weight: bold;
     }
 `
