@@ -43,6 +43,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - React
 - Vite 
 - styled-components
+- React-modal
 - Jest
 - Testing-library
 - Git e Github
